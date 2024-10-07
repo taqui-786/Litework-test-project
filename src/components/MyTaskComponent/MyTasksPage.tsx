@@ -73,6 +73,10 @@ export default function MyTaskPage() {
     setAssignee(value === "all" ? null : value);
     applyFilters();
   };
+  const handleCategoryChange = (value: string) => {
+    setCategory(value === "all" ? null : value);
+    applyFilters();
+  };
 
   const indexOfLastTask = currentPage * tasksPerPage;
   const indexOfFirstTask = indexOfLastTask - tasksPerPage;
@@ -172,7 +176,7 @@ export default function MyTaskPage() {
               </SelectContent>
             </Select>
 
-            <Select value={category || undefined} onValueChange={setCategory}>
+            <Select value={category || undefined} onValueChange={handleCategoryChange}>
               <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
                 <CirclePlus className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Category" />
