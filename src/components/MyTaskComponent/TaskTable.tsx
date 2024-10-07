@@ -3,6 +3,8 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Dot } from 'lucide-react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 interface Task {
   id: string
@@ -19,6 +21,7 @@ interface TaskTableProps {
 }
 
 export function TaskTableComponent({ tasks }: TaskTableProps) {
+  const router = useRouter()
   return (
     <div className="overflow-x-auto border border-gray-100">
       <Table>
@@ -35,7 +38,7 @@ export function TaskTableComponent({ tasks }: TaskTableProps) {
         </TableHeader>
         <TableBody>
           {tasks.map((task, index) => (
-            <TableRow key={index}>
+            <TableRow key={index} className='cursor-pointer' onClick={() => router.push(`/felicityactivity/${task.assignee}`) } >
               <TableCell className="font-medium">{task.id}</TableCell>
               <TableCell>{task.assignee}</TableCell>
               <TableCell>{task.summary}</TableCell>

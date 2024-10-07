@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from "@/components/ui/input"
-import UserProfileMenu from './UserProfileMenu'
-import NotificationBell from './HeaderWithNotifications'
+import UserProfileMenu from './HeaderProfileMenu'
+import NotificationBell from './HeaderNotifications'
 import { Search } from 'lucide-react'
 function Header() {
   return (

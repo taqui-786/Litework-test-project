@@ -1,15 +1,13 @@
-import { FelicityActivityPage } from '@/components/FelicityactivityComponent/FelicityActivityPage'
-import React from 'react'
-import type { Metadata } from 'next'
- 
+import React from "react";
+import type { Metadata } from "next";
+import MyTaskPage from "@/components/MyTaskComponent/MyTasksPage";
+
 export const metadata: Metadata = {
-  title: 'LightWork | FelicityActivity',
-  description: '',
-}
+  title: "LightWork | FelicityActivity",
+  description: "",
+};
 function page() {
-  return (
-    <FelicityActivityPage/>
-  )
+  return <MyTaskPage />;
 }
 
-export default page
+export default page;
