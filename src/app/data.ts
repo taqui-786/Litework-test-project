@@ -8,6 +8,7 @@ export const tabs = [
   
   export const initialTasks = [
     {
+      uuid:"qwe1",
       id: "TA- 002",
       assignee: "Annette Black",
       summary: "Replacement Worn-Out Drive Belts",
@@ -17,6 +18,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe2",
       id: "TA- 002",
       assignee: "Annette Black",
       summary: "Replacement Worn-Out Drive Belts",
@@ -26,6 +28,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe3",
       id: "TA- 002",
       assignee: "Vuejs Courses",
       summary: "Lubrication Conveyor Bearings",
@@ -35,6 +38,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe4",
       id: "TA- 002",
       assignee: "Leslie Alexander",
       summary: "Overhaul Hydraulic Press System",
@@ -44,6 +48,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe5",
       id: "TA- 001",
       assignee: "Cameron Williamson",
       summary: "Emergency Repair Cooling System...",
@@ -53,6 +58,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe6",
       id: "TA- 002",
       assignee: "Aubrey",
       summary: "Repair Cracks On The Walls",
@@ -62,6 +68,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe7",
       id: "TA- 002",
       assignee: "Aubrey",
       summary: "Repair Cracks On The Walls",
@@ -71,6 +78,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe8",
       id: "TA- 001",
       assignee: "Marvin McKinney",
       summary: "Maintenance Of HVACV System",
@@ -80,6 +88,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe9",
       id: "TA- 002",
       assignee: "Esther Howard",
       summary: "Fire Extinguisher, Repairs",
@@ -89,6 +98,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe10",
       id: "TA- 002",
       assignee: "Annette Black",
       summary: "A/C Vents Leaks Water",
@@ -98,6 +108,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe11",
       id: "TA- 001",
       assignee: "Jane Cooper",
       summary: "Equipment Upgrade PLC Control...",
@@ -107,6 +118,7 @@ export const tabs = [
       lastUpdated: "11:30 AM\n24 Aug 2014",
     },
     {
+      uuid:"qwe12",
       id: "TA- 001",
       assignee: "Jane Cooper",
       summary: "Equipment Upgrade PLC Control...",

@@ -15,7 +15,8 @@ export async function generateMetadata({ params: { id } }: PageProps): Promise<M
 }
 
 function Page({ params: { id } }: PageProps) {
-  return <FelicityActivityPage />;
+  
+  return <FelicityActivityPage id={id} />;
 }
 
 export default Page;

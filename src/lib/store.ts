@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 interface Task {
+  uuid:string;
   id: string;
   assignee: string;
   summary: string;

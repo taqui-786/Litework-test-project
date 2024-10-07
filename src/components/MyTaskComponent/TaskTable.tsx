@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 interface Task {
+  uuid:string;
   id: string
   assignee: string
   summary: string
@@ -38,7 +39,7 @@ export function TaskTableComponent({ tasks }: TaskTableProps) {
         </TableHeader>
         <TableBody>
           {tasks.map((task, index) => (
-            <TableRow key={index} className='cursor-pointer' onClick={() => router.push(`/felicityactivity/${task.assignee}`) } >
+            <TableRow key={index} className='cursor-pointer' onClick={() => router.push(`/felicityactivity/${task.uuid}`) } >
               <TableCell className="font-medium">{task.id}</TableCell>
               <TableCell>{task.assignee}</TableCell>
               <TableCell>{task.summary}</TableCell>

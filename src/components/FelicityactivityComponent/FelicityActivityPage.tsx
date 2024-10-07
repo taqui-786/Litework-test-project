@@ -14,9 +14,12 @@ import {
 } from "lucide-react";
 import SendMessage from "./SendMessage";
 import { useRouter } from "next/navigation";
+import { useTaskStore } from "@/lib/store";
 
-export function FelicityActivityPage() {
+export function FelicityActivityPage({id}:{id:string}) {
+  const {tasks} = useTaskStore()
   const router = useRouter()
+  const theTask =  tasks.find(task => task.uuid === id)
   return (
     <div className="flex h-screen bg-transparent">
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -26,7 +29,7 @@ export function FelicityActivityPage() {
           </div>
           <div className="ml-4 flex-1">
             <h1 className="text-lg font-semibold">
-              Kitchen Sink Repair - Kimberly
+              {theTask?.summary} - {theTask?.assignee}
             </h1>
             <p className="text-sm text-gray-500">
               13:00PM - 50 Mission Road, London, SE4 5EW
@@ -144,7 +147,7 @@ export function FelicityActivityPage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm font-semibold">
-                        Kitchen Sink Repair
+                        {theTask?.summary}
                       </p>
                       <p className="text-xs text-gray-500">
                         Kimberly reported a blocked sink in the kitchen of the
@@ -159,7 +162,7 @@ export function FelicityActivityPage() {
                   <Card>
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm font-medium">
-                        #TA 0001 • Kimberly Swanson
+                        #TA 0001 • {theTask?.assignee}
                       </CardTitle>
                       <p className="text-xs text-gray-500">
                         Created 09:54 AM • 18 July 23
@@ -189,7 +192,7 @@ export function FelicityActivityPage() {
                     </CardHeader>
                     <CardContent>
                       <h3 className="text-lg font-medium mb-1">
-                        Annette Black
+                        {theTask?.assignee}
                       </h3>
                       <p className="text-sm text-gray-600 mb-4">
                         The Edge at Glade Parks
