@@ -46,7 +46,12 @@ export default function Sidebar() {
 
   const pathname = usePathname();
 
-  
+  const isActive = (href:string) => {
+    if (href === '/') {
+      return pathname === href;
+    }
+    return pathname.startsWith(href);
+  };
 
 
   return (
@@ -79,7 +84,7 @@ export default function Sidebar() {
               href={item.href}
               className={cn(
                 "w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-700 rounded-md",
-                (pathname === item.href  && 
+                (isActive(item.href) && 
                   "bg-primary text-white hover:bg-gray-800 hover:text-white" )
               )}
               
