@@ -1,5 +1,5 @@
-'use client'
-import React, { useEffect, useState ,useRef} from "react";
+"use client";
+import React, { useEffect, useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,19 +10,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import {
-  Calendar,
-  CirclePlus,
-  Loader2,
-  Search,
-} from "lucide-react";
+import { Calendar, CirclePlus, Loader2, Search } from "lucide-react";
 import { useTaskStore } from "@/lib/store";
 import { initialTasks, tabs } from "@/app/data";
 import { TaskTableComponent } from "./TaskTable";
 import { TaskManagementSkeleton } from "./TaskManagementSkeleton";
-
-
-
 
 export default function MyTaskPage() {
   const {
@@ -43,7 +35,7 @@ export default function MyTaskPage() {
     setCurrentPage,
     setActiveTab,
     setTasks,
-    applyFilters
+    applyFilters,
   } = useTaskStore();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -56,46 +48,44 @@ export default function MyTaskPage() {
         applyFilters();
       } catch (error) {
         console.error("Error loading tasks", error);
-      }finally{
-        setIsLoading(false)
+      } finally {
+        setIsLoading(false);
       }
     };
-  
+
     loadInitialTasks();
   }, []);
-
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     applyFilters();
   };
-  
+
   const handleMessageTypeChange = (value: string) => {
-    setMessageType(value === 'all' ? null : value);
+    setMessageType(value === "all" ? null : value);
     applyFilters();
   };
   const handleStatusChange = (value: string) => {
-    setStatus(value === 'all' ? null : value);
+    setStatus(value === "all" ? null : value);
     applyFilters();
   };
   const handleAssingeeChange = (value: string) => {
-    setAssignee(value === 'all' ? null : value);
+    setAssignee(value === "all" ? null : value);
     applyFilters();
   };
 
-  
   const indexOfLastTask = currentPage * tasksPerPage;
-const indexOfFirstTask = indexOfLastTask - tasksPerPage;
-const currentTasks = filteredTasks.slice(indexOfFirstTask, indexOfLastTask);
+  const indexOfFirstTask = indexOfLastTask - tasksPerPage;
+  const currentTasks = filteredTasks.slice(indexOfFirstTask, indexOfLastTask);
 
-const paginate = (pageNumber: number) => {
-  setCurrentPage(pageNumber);
-};
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen m-8">
-       <TaskManagementSkeleton/>
+        <TaskManagementSkeleton />
       </div>
     );
   }
@@ -131,56 +121,72 @@ const paginate = (pageNumber: number) => {
                 onChange={handleSearchChange}
               />
             </div>
-            <Select value={messageType || undefined} onValueChange={handleMessageTypeChange}>
-  <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md relative">
-    <CirclePlus className="w-4 h-4 mr-2" />
-    <SelectValue placeholder="Message Type" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="all">All</SelectItem>
-    <SelectItem value="sms">SMS</SelectItem>
-    <SelectItem value="CALL">CALL</SelectItem>
-  </SelectContent>
-</Select>
+            <Select
+              value={messageType || undefined}
+              onValueChange={handleMessageTypeChange}
+            >
+              <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md relative">
+                <CirclePlus className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Message Type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="sms">SMS</SelectItem>
+                <SelectItem value="CALL">CALL</SelectItem>
+              </SelectContent>
+            </Select>
 
-<Select value={status || undefined} onValueChange={handleStatusChange}>
-  <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
-    <CirclePlus className="w-4 h-4 mr-2" />
-    <SelectValue placeholder="Status" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="all">All</SelectItem>
-    <SelectItem value="resolved">Resolved</SelectItem>
-    <SelectItem value="needs reply">Needs Reply</SelectItem>
-    <SelectItem value="not started">Not Started</SelectItem>
-  </SelectContent>
-</Select>
+            <Select
+              value={status || undefined}
+              onValueChange={handleStatusChange}
+            >
+              <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
+                <CirclePlus className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="resolved">Resolved</SelectItem>
+                <SelectItem value="needs reply">Needs Reply</SelectItem>
+                <SelectItem value="not started">Not Started</SelectItem>
+              </SelectContent>
+            </Select>
 
-<Select value={assignee || undefined} onValueChange={handleAssingeeChange}>
-  <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
-    <CirclePlus className="w-4 h-4 mr-2" />
-    <SelectValue placeholder="Assignee" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="all">All</SelectItem>
-    <SelectItem value="annette black">Annette Black</SelectItem>
-    <SelectItem value="leslie alexander">Leslie Alexander</SelectItem>
-    <SelectItem value="cameron williamson">Cameron Williamson</SelectItem>
-  </SelectContent>
-</Select>
+            <Select
+              value={assignee || undefined}
+              onValueChange={handleAssingeeChange}
+            >
+              <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
+                <CirclePlus className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Assignee" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="annette black">Annette Black</SelectItem>
+                <SelectItem value="leslie alexander">
+                  Leslie Alexander
+                </SelectItem>
+                <SelectItem value="cameron williamson">
+                  Cameron Williamson
+                </SelectItem>
+              </SelectContent>
+            </Select>
 
-<Select value={category || undefined} onValueChange={setCategory}>
-  <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
-    <CirclePlus className="w-4 h-4 mr-2" />
-    <SelectValue placeholder="Category" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="all">All</SelectItem>
-    <SelectItem value="work order">Work Order</SelectItem>
-    <SelectItem value="inquiries">Inquiries</SelectItem>
-  </SelectContent>
-</Select>
-            <Button variant="outline" className="ml-auto border-dashed rounded-md">
+            <Select value={category || undefined} onValueChange={setCategory}>
+              <SelectTrigger className="w-fit max-w-[185px] border-dashed rounded-md">
+                <CirclePlus className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="work order">Work Order</SelectItem>
+                <SelectItem value="inquiries">Inquiries</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button
+              variant="outline"
+              className="ml-auto border-dashed rounded-md"
+            >
               <Calendar className="w-4 h-4 mr-2" />
               Jan 20, 2024 - Feb 09,2024
             </Button>
@@ -194,7 +200,9 @@ const paginate = (pageNumber: number) => {
             >
               Previous
             </Button>
-            {Array.from({ length: Math.ceil(filteredTasks.length / tasksPerPage) }).map((_, index) => (
+            {Array.from({
+              length: Math.ceil(filteredTasks.length / tasksPerPage),
+            }).map((_, index) => (
               <Button
                 key={index}
                 variant={currentPage === index + 1 ? "default" : "outline"}
@@ -207,7 +215,9 @@ const paginate = (pageNumber: number) => {
             <Button
               variant="outline"
               onClick={() => paginate(currentPage + 1)}
-              disabled={currentPage === Math.ceil(filteredTasks.length / tasksPerPage)}
+              disabled={
+                currentPage === Math.ceil(filteredTasks.length / tasksPerPage)
+              }
             >
               Next
             </Button>

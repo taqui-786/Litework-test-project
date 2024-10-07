@@ -31,7 +31,7 @@ export function FelicityActivityPage() {
         </header>
         <main className="flex-1 flex overflow-hidden">
           <div className="flex-1 overflow-y-auto">
-            <div className="flex flex-col space-y-4 p-4">
+            <div className="flex flex-col space-y-4 p-4 ">
               <Tabs defaultValue="sms" className="w-full">
                 <TabsList className="grid w-full grid-cols-3 mb-4">
                   <TabsTrigger value="sms">SMS Messages</TabsTrigger>
@@ -100,7 +100,7 @@ export function FelicityActivityPage() {
               <SendMessage />
             </div>
           </div>
-          <div className="w-96 bg-white border-l overflow-y-auto">
+          <div className="w-96 bg-white border-l overflow-hidden">
             <div className="p-4">
               <Tabs defaultValue="jobs">
                 <TabsList className="grid w-full grid-cols-3">
